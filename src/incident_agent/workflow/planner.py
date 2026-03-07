@@ -112,7 +112,7 @@ class LLMPlanner:
                 PlanStep(
                     tool_name="summarize_incident",
                     call_type="tool_call",
-                    input_schema={"alert_id": f"CPU spike on host {host}", "evidence": []},
+                    input_schema={"alert_id": "ALRT-2025-10", "evidence": []},
                     notes="Summarize CPU spike findings",
                 )
             )
@@ -154,7 +154,7 @@ class LLMPlanner:
                 PlanStep(
                     tool_name="summarize_incident",
                     call_type="tool_call",
-                    input_schema={"alert_id": f"Service restart loop on host {host}", "evidence": []},
+                    input_schema={"alert_id": "ALRT-2025-11", "evidence": []},
                     notes="Summarize restart-loop findings",
                 )
             )
@@ -196,7 +196,7 @@ class LLMPlanner:
                 PlanStep(
                     tool_name="summarize_incident",
                     call_type="tool_call",
-                    input_schema={"alert_id": f"Service unavailable on host {host}", "evidence": []},
+                    input_schema={"alert_id": "ALRT-2025-12", "evidence": []},
                     notes="Summarize service-unavailable findings",
                 )
             )
@@ -215,7 +215,7 @@ class LLMPlanner:
                 PlanStep(
                     tool_name="summarize_incident",
                     call_type="tool_call",
-                    input_schema={"alert_id": "Unknown issue", "evidence": []},
+                    input_schema={"alert_id": "ALRT-2025-12", "evidence": []},
                     notes="Summarize unknown incident",
                 )
             )

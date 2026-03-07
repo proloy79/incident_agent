@@ -1,5 +1,5 @@
 from .models import ToolMetadata, ToolDefinition, ToolExecutionSpec
-from .adapter import ToolAdapter
+from .tool_executor import ToolExecutor
 from .handlers import retrieve_runbook_handler, run_diagnostic_handler, summarize_incident_handler
 
 __all__ = [
@@ -7,7 +7,7 @@ __all__ = [
     "ToolDefinition",
     "ToolExecutionSpec",
     "ToolExecutionSpec"
-    "ToolAdapter",
+    "ToolExecutor",
     "retrieve_runbook_handler",
     "run_diagnostic_handler",
     "summarize_incident_handler"

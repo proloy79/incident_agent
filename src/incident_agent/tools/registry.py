@@ -1,6 +1,6 @@
-from .adapter import ToolAdapter
+from .tool_executor import ToolExecutor
 from .models import ToolDefinition, ToolExecutionSpec
-from .adapter import CircuitBreaker
+from .tool_executor import CircuitBreaker
 
 class ToolDefinitionRegistry:
     def __init__(self):
@@ -28,8 +28,8 @@ class ToolSpecRegistry:
 class ToolExecutionRegistry:
     def __init__(self, definition_registry: ToolDefinitionRegistry, run_spec: ToolSpecRegistry, mcp_client):
         self.mcp_client = mcp_client
-        self.adapters = {
-            name: ToolAdapter(
+        self.tool_executors = {
+            name: ToolExecutor(
                 definition=definition,
                 spec=run_spec.get(name),
                 breaker=CircuitBreaker(),
@@ -39,4 +39,4 @@ class ToolExecutionRegistry:
         }
 
     def execute(self, tool_name: str, args: dict):
-        return self.adapters[tool_name].call_tool(args)
+        return self.tool_executors[tool_name].call_tool(args)

@@ -1,7 +1,7 @@
 import asyncio
-from agent.incident_agent import IncidentAgent
+from workflow.edge_runner import EdgeRunner
 from client import Client
-from agent.observation import Observation
+from workflow.observation import Observation
 from logging_config import setup_logging
 import logging
 
@@ -14,13 +14,16 @@ async def main():
     logger.info("Incident Agent starting up...")
 
     async with Client(ENDPOINT, CLIENT_VERSION) as client:
-        agent = IncidentAgent(client)
+        edgeRunner = EdgeRunner(client)
         observation = Observation("CPU spike on host A", 1)
-        await agent.handle_incident(observation)
+        output = await edgeRunner.execute(observation)
+        logger.info(f"request=[{observation.text}] audit path=[{output['audit_path']}]")
         observation = Observation("CPU spike on host B", 2)
-        await agent.handle_incident(observation)
+        output = await edgeRunner.execute(observation)
+        logger.info(f"request=[{observation.text}] audit path=[{output['audit_path']}]")
         observation = Observation("Repeated restart of container instance 1 in host A", 3)
-        await agent.handle_incident(observation)
+        output = await edgeRunner.execute(observation)
+        logger.info(f"request=[{observation.text}] audit path=[{output['audit_path']}]")
         
 if __name__ == "__main__":
     asyncio.run(main())

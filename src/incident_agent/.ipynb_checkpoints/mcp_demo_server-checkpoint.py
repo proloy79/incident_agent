@@ -31,7 +31,7 @@ RUNBOOK_SNIPPETS = [ # canned runbook guidance
 ] # end runbook list
 
 CPU_SPIKE_ALERT_PAYLOAD = { # representative alert object
-    "id": "ALRT-2025-07",
+    "id": "ALRT-2025-10",
     "service": "staging-api",
     "symptom": "CPU spike on node-3",
     "severity": "high",
@@ -45,7 +45,7 @@ CRASHLOOP_ALERT_PAYLOAD = {
 }
 
 GENERIC_ALERT_PAYLOAD = {
-    "id": "ALRT-2025-18",
+    "id": "ALRT-2025-12",
     "service": "app-insights",
     "symptom": "Service unavailable",
     "severity": "low",
@@ -127,6 +127,7 @@ async def main(): # run the websocket server forever
     setup_logging()
     logger = logging.getLogger(__name__)
     logger.info("Starting MCP Demo server...")
+
 
     async with websockets.serve( # expose MCP endpoint
         handle_session,
