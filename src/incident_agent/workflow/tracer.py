@@ -26,18 +26,17 @@ class Writer(Protocol):
         ...
         
 class TraceWriter:
-    def __init__(self, path: str):
-        self.path = path
+    def __init__(self):
         self.f = None
 
-    def _ensure_open(self):
+    def _ensure_open(self, path: str):
         if self.f is None:
             # "a" mode creates the file if it doesn't exist
-            self.f = open(self.path, "a", encoding="utf-8")
+            self.f = open(path, "a", encoding="utf-8")
 
-    def write(self, event):
+    def write(self, path, event):
         try:
-            self._ensure_open()
+            self._ensure_open(path)
             self.f.write(json.dumps(asdict(event)) + "\n")
         except Exception:
             pass

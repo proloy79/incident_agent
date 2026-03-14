@@ -14,10 +14,10 @@ hydra:
   hydra_logging:
     disable_existing_loggers: true
 
-audit_root: ~/tmp/audit/incident_agent/
+audit_root: audit/incident_agent/
 mcp_endpoint: ws://localhost:8765/mcp
 replay: False
-trace_file: ~/projects/incident_agent/tests/replay/traces/cpu_spike_A/audit.jsonl
+trace_file: tests/replay/traces/cpu_spike_A/audit.jsonl
 
 shared:
     max_turns: 15

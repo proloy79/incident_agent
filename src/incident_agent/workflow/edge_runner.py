@@ -56,8 +56,8 @@ class EdgeRunner:
         audit = os.path.join(audit_dir, "audit.jsonl")  # Audit path.
 
         trace_writer = ctx.trace_recorder.trace_writer
-        for event in ctx.trace_recorder.events:
-            trace_writer.write(event)
+        for event in ctx.trace_recorder.events:            
+            trace_writer.write(audit, event)
         trace_writer.close()
                 
         return {"output": outputs, "audit_path": audit}

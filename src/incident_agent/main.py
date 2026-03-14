@@ -61,7 +61,7 @@ async def run(cfg: DictConfig):
 
 async def run_live(client: Client, prompt: str, cfg: DictConfig, tool_spec_registry: ToolSpecRegistry) -> Dict[str, any]:
     
-    trace_writer = TraceWriter(path=cfg.audit_root)
+    trace_writer = TraceWriter()
     trace_recorder = TraceRecorder(trace_writer)
     edgeRunner = EdgeRunner(client)
     
