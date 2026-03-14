@@ -91,6 +91,10 @@ Contains deterministic traces for:
 
 ## Running the Agent
 
+Update the configs/config.yaml and set these accordingly:
+    replay: True/False
+    trace_file: tests/replay/traces/cpu_spike_A/audit.jsonl (only used if replay is True)
+
 Clone the repository: https://github.com/proloy79/incident_agent.git
 
 MCP Server

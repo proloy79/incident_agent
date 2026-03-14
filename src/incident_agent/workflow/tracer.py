@@ -22,7 +22,7 @@ class TraceEvent:
     status: str ="ok"
 
 class Writer(Protocol):
-    def write(self, event: TraceEvent) -> None:
+    def write(self, path:str, event: TraceEvent) -> None:
         ...
         
 class TraceWriter:
@@ -34,7 +34,7 @@ class TraceWriter:
             # "a" mode creates the file if it doesn't exist
             self.f = open(path, "a", encoding="utf-8")
 
-    def write(self, path, event):
+    def write(self, path: str, event):
         try:
             self._ensure_open(path)
             self.f.write(json.dumps(asdict(event)) + "\n")
@@ -52,7 +52,7 @@ class TraceWriter:
 
 
 class InMemoryTraceWriter():
-    def write(self, event: TraceEvent):
+    def write(self, path: str, event: TraceEvent):
         pass
 
     def close(self):
