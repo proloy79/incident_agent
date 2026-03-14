@@ -82,7 +82,7 @@ In Replay Mode, tool_executor is ignored and events are replayed from the replay
 
 ### Replay artifacts
 
-tests/replay/traces/
+Location: tests/replay/traces/
 
 Contains deterministic traces for:
 - CPU spikes
@@ -91,20 +91,20 @@ Contains deterministic traces for:
 
 ## Running the Agent
 
+Clone the repository: [incident_agent](https://github.com/proloy79/incident_agent.git)
+
 Update the configs/config.yaml and set these accordingly:
-  -  replay: True/False
-  - trace_file: tests/replay/traces/cpu_spike_A/audit.jsonl (only used if replay is True)
+  - replay: True/False
+  - trace_file: tests/replay/traces/cpu_spike_A/audit.jsonl <i>(only used if replay is True)</i>
 
-Clone the repository: https://github.com/proloy79/incident_agent.git
 
-MCP Server
-    python -m incident_agent.mcp_demo_server
+MCP Server:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python -m incident_agent.mcp_demo_server
 
-Live Mode
-    python src/incident_agent/main.py
+Live Mode:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python src/incident_agent/main.py
 
-Replay Mode
-
-    python src/incident_agent/main.py replay_mode=true trace_file=tests/replay/traces/cpu_spike_A
-    python src/incident_agent/main.py replay_mode=true trace_file=tests/replay/traces/cpu_spike_B
-    python src/incident_agent/main.py replay_mode=true trace_file=tests/replay/traces/repeated_restart
+Replay Mode:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python src/incident_agent/main.py replay_mode=true trace_file=tests/replay/traces/cpu_spike_A<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python src/incident_agent/main.py replay_mode=true trace_file=tests/replay/traces/cpu_spike_B<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;python src/incident_agent/main.py replay_mode=true trace_file=tests/replay/traces/repeated_restart<br>
