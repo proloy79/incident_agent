@@ -6,7 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "incident-agent"
 version = "0.0.1"
 description = "Incident Agent"
+readme = "README.md"
 requires-python = ">=3.10"
+authors = [{ name = "Proloy Goswami" }]
+license = { text = "MIT" }
 dependencies = []
 
 [tool.setuptools]
