@@ -87,7 +87,6 @@ Location: tests/replay/traces/
 Contains deterministic traces for:
 - CPU spikes
 - Repeated restarts
-- Multi‑step incidents
 
 ## Running the Agent
 
